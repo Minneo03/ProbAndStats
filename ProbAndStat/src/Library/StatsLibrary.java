@@ -2,6 +2,7 @@ package Library;
 
 import java.util.ArrayList;
 import java.util.Collections;
+//Could've also used java.util.Comparator to sort
 
 /**
  * 
@@ -40,11 +41,10 @@ public class StatsLibrary {
 		double median = 0.0;
 		ArrayList<Integer> sortedArray = new ArrayList<Integer>();
 		
-		//Creates an arraylist so I can sort the inputed array later
-		for (int singleElement : inputArr) {
-			sortedArray.add(singleElement);
-		}
+		//adds all of the values from one arrayList to another.
+		sortedArray.addAll(inputArr);
 		
+		//sorts the arrayList into ascending order.
 		Collections.sort(sortedArray);
 		
 		if (sortedArray.size()%2 == 1) {
@@ -55,7 +55,6 @@ public class StatsLibrary {
 		}
 		
 		return median;
-		
 	}
 	
 	/**
@@ -73,7 +72,7 @@ public class StatsLibrary {
 		{
 			int count = 0;
 			
-			for (int j = 0; j < inputArr.size(); j++) 
+			for (int j = 1; j < inputArr.size(); j++) 
 			{
 				if (inputArr.get(i) == inputArr.get(j))
 					count++;	
