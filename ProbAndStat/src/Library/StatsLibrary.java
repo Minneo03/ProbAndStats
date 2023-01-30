@@ -58,7 +58,7 @@ public class StatsLibrary {
 	}
 	
 	/**
-	 * Finds the mode of an inputed arrayList. If there are "multiple modes" then it should return null.
+	 * Finds the mode of an inputed arrayList. If there are "multiple modes" then it should return null. If there is no mode, it will also return null.
 	 * 
 	 * @param inputArr
 	 * @return mode
@@ -72,17 +72,20 @@ public class StatsLibrary {
 		{
 			int count = 0;
 			
-			for (int j = 1; j < inputArr.size(); j++) 
+			for (int j = 0; j < inputArr.size(); j++) 
 			{
 				if (inputArr.get(i) == inputArr.get(j))
 					count++;	
 			}
 			
+			//if the count is higher than the highestCount, highestCount will be redefined as the value of count. Then the mode is set to the value in the arrayList. If there are "multiple modes" then the mode will become null.
 			if (count > highestCount) 
 			{
 				highestCount = count;
 				mode = inputArr.get(i);
 			}
+			else if (count == highestCount && inputArr.get(i) != mode)
+				mode = null;
 		}
 		return mode;
 	}

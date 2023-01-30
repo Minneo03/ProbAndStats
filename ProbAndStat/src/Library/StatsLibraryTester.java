@@ -1,6 +1,7 @@
 package Library;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.concurrent.ThreadLocalRandom;
 //Didn't know this way of getting a random integer so I wanted to try it
 
@@ -14,14 +15,19 @@ public class StatsLibraryTester {
 	{
 		StatsLibrary tester = new StatsLibrary();
 		ArrayList<Integer> arr = new ArrayList<Integer>();
+		ArrayList<Integer> sortedArr = new ArrayList<Integer>();
 		
-		//randomizing the arrayList cause I didn't want to create multiple arrayLists, and I wanted to test out how using ThreadLocalRandom worked. "i < ThreadLocal..." randomizes the length of the arrayList between 5 and 10.
-		for (int i = 0; i < ThreadLocalRandom.current().nextInt(5, 11); i++)
+		//randomizing the arrayList cause I didn't want to create multiple arrayLists, and I wanted to test out how using ThreadLocalRandom worked. "i < ThreadLocal..." randomizes the length of the arrayList. ...nextInt(min, max + 1) 
+		for (int i = 0; i < ThreadLocalRandom.current().nextInt(10, 21); i++)
 		{
-			arr.add(ThreadLocalRandom.current().nextInt(-15, 16));
+			arr.add(ThreadLocalRandom.current().nextInt(0, 21));
 		}
 		
-		System.out.println(arr.toString());
+		sortedArr.addAll(arr);
+		Collections.sort(sortedArr);
+		
+		System.out.println("The unsorted arrayList is " + arr.toString());
+		System.out.println("The unsorted arrayList is " + sortedArr.toString());
 		System.out.println("The mean of this arrayList is: " + tester.findMean(arr));
 		System.out.println("The median of this arrayList is: " + tester.findMedian(arr));
 		System.out.println("The mode of this arrayList is: " + tester.findMode(arr));
