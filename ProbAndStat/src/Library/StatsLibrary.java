@@ -89,4 +89,29 @@ public class StatsLibrary {
 		}
 		return mode;
 	}
+	
+	/**
+	 * Finds the standard deviation of an ArrayList of Integers
+	 * 
+	 * @param inputArr
+	 * @return deviation (AKA Standard Deviation)
+	 */
+	public double standardDeviation(ArrayList<Integer> inputArr)
+	{
+		double deviation = 0.0;
+		//mean comes in handy
+		double mean = findMean(inputArr);
+		
+		//Sum of (Xi - X-)^2
+		for (int element : inputArr)
+			deviation += Math.pow((element-mean), 2);
+		
+		//Divides by n-1
+		deviation /= (inputArr.size()-1);
+		
+		//Takes the Square Root to finally determine the Standard Deviation
+		deviation = Math.sqrt(deviation);
+		
+		return deviation;
+	}
 }

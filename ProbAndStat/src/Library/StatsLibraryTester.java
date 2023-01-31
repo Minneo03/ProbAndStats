@@ -26,10 +26,11 @@ public class StatsLibraryTester {
 		sortedArr.addAll(arr);
 		Collections.sort(sortedArr);
 		
-		System.out.println("The unsorted arrayList is " + arr.toString());
-		System.out.println("The unsorted arrayList is " + sortedArr.toString());
-		System.out.println("The mean of this arrayList is: " + tester.findMean(arr));
-		System.out.println("The median of this arrayList is: " + tester.findMedian(arr));
-		System.out.println("The mode of this arrayList is: " + tester.findMode(arr));
+		System.out.println("The unsorted arrayList is: " + arr.toString()+ "\n");
+		System.out.println("The unsorted arrayList is: " + sortedArr.toString() + "\n");
+		System.out.println("The mean of this arrayList is: " + tester.findMean(arr)+ "\n");
+		System.out.println("The median of this arrayList is: " + tester.findMedian(arr)+ "\n");
+		System.out.println("The mode of this arrayList is: " + tester.findMode(arr)+ "\n");
+		System.out.println("The Standard Deviation of this arrayList is: " + tester.standardDeviation(arr)+ "\n");
 	}
 }
