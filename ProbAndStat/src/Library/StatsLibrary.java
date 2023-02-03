@@ -114,4 +114,50 @@ public class StatsLibrary {
 		
 		return deviation;
 	}
+	
+	
+	public int findFactorial(int num)
+	{
+		int factorial = 1;
+		
+		if (num != 0)
+		{
+			factorial *= num;
+			factorial *= findFactorial(num-1);
+		}
+		
+		return factorial;
+	}
+	
+	/**
+	 * Find the number of permutations
+	 * 
+	 * @param n
+	 * @param r
+	 * @return
+	 */
+	public int findPermutations(int n, int r)
+	{
+		int permutations = 0;
+		
+		permutations += (findFactorial(n)/findFactorial(n-r));
+		
+		return permutations;
+	}
+	
+	/**
+	 * Finds the number of combinations
+	 * 
+	 * @param n
+	 * @param r
+	 * @return
+	 */
+	public int findCombinations(int n, int r)
+	{
+		int combinations = 0;
+
+		combinations += findFactorial(n)/(findFactorial(r) * findFactorial(n-r));
+		
+		return combinations;
+	}
 }
