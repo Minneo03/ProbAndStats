@@ -3,9 +3,19 @@ package Library;
 import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
 
+/**
+ * This class only has two methods. One to generate the list of Doors, and one to play through the Monty Hall scenario. 
+ * 
+ * @author Ryan Minneo
+ * @version 0.9 - Doesn't currently obtain the right answer.
+ */
 public class DoorGame 
 {
-	
+	/**
+	 * This method will generate an ArrayList with 3 values in it, where two are 0's and one is 1. The position of the 1 is randomized.
+	 * 
+	 * @return doorList - The ArrayList of doors, 1 is where the car is, while the 0's are where the goats are.
+	 */
 	public ArrayList<Integer> generateDoors()
 	{
 		ArrayList<Integer> doorList = new ArrayList<Integer>();
@@ -27,6 +37,13 @@ public class DoorGame
 		return doorList;
 	}
 	
+	/**
+	 * This method plays the game. It will play/iterate through the game "times" amount. Since there is a choice of changing or not changing the door the player picks, there is also a boolean "keepAnswer" to determine if this method will change doors or not.
+	 * 
+	 * @param times - Number of times the game will be played
+	 * @param keepAnswer - Whether or not the game will stick to its original answer or change its answer after a door has been revealed.
+	 * @return winCount - the number of times this program "wins" the game/picks the door with the car behind it.
+	 */
 	public int playGame(int times, boolean keepAnswer)
 	{
 		int winCount = 0;
