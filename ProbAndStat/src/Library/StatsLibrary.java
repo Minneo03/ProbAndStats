@@ -2,6 +2,7 @@ package Library;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.math.BigInteger;
 //Could've also used java.util.Comparator to sort
 
 /**
@@ -115,7 +116,12 @@ public class StatsLibrary {
 		return deviation;
 	}
 	
-	
+	/**
+	 * Finds the factorial of the input provided. This is also a recursive method.
+	 * 
+	 * @param num
+	 * @return
+	 */
 	public int findFactorial(int num)
 	{
 		int factorial = 1;
@@ -130,6 +136,27 @@ public class StatsLibrary {
 	}
 	
 	/**
+	 * First time I ever used BigInteger. I used it so that I can calculate factorials to a much higher value.
+	 * 
+	 * @param num - It is a String, but it could technically be an integer or BigInteger, String is just the easiest.
+	 * @return strFactorial - returns the factorial of num as a String, since the values are too big for an int
+	 */
+	public String findFactorial(String num)
+	{
+		BigInteger factorial = new BigInteger("1");
+		BigInteger numb = new BigInteger(num);
+		String strFactorial = "";
+		
+		for (int i = numb.intValue(); i > 1; i--)
+		{
+			factorial = factorial.multiply(BigInteger.valueOf(i));
+		}
+		
+		strFactorial = factorial.toString();
+		return strFactorial;
+	}
+	
+	/**
 	 * Find the number of permutations
 	 * 
 	 * @param n
@@ -138,11 +165,14 @@ public class StatsLibrary {
 	 */
 	public int findPermutations(int n, int r)
 	{
-		int permutations = 0;
-		
-		permutations += (findFactorial(n)/findFactorial(n-r));
-		
-		return permutations;
+		return findFactorial(n)/findFactorial(n-r);
+	}
+	
+	public String findPermutations(String nInput, String rInput)
+	{
+		BigInteger nFactorial = new BigInteger(findFactorial(nInput));
+		BigInteger rFactorial = new BigInteger(findFactorial(rInput));
+		return nInput; //Just so no errors
 	}
 	
 	/**
@@ -154,10 +184,6 @@ public class StatsLibrary {
 	 */
 	public int findCombinations(int n, int r)
 	{
-		int combinations = 0;
-
-		combinations += findFactorial(n)/(findFactorial(r) * findFactorial(n-r));
-		
-		return combinations;
+		return findFactorial(n)/(findFactorial(r) * findFactorial(n-r));
 	}
 }
