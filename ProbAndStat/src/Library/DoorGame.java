@@ -38,16 +38,15 @@ public class DoorGame
 			decision = ThreadLocalRandom.current().nextInt(0, 3);
 			doorList.addAll(generateDoors());
 			
-			if (doorList.get(decision) == 1)
-				if (keepAnswer)
-					winCount++;
-			else
+			if (doorList.get(decision) == 1) //if you choose the right door,       (This happens 1/3 of the time)
+				if (keepAnswer) //if you want to keep your answer, not change it, 
+					winCount++; //you get a win
+			
+			else //if you don't choose the right door immediately       (This happens 2/3 of the time)
 			{
-				doorList.remove(doorList.indexOf(0));
-				decision = doorList.indexOf(0);
-				if (doorList.get(decision) == 0)
-					if (!keepAnswer)
-						winCount++;
+				//At this point a door would be revealed, thus changing doors will always be the best option here.
+				if (!keepAnswer) //if you want to change doors     
+					winCount++; //you get a win
 			}
 			
 			doorList.removeAll(doorList);
