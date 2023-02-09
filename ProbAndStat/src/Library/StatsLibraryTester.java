@@ -20,7 +20,7 @@ public class StatsLibraryTester {
 		ArrayList<Integer> sortedArr = new ArrayList<Integer>();
 		
 		//For Factorial Test (big number)
-		String number = "21965";
+		String number = "5";
 		
 		//randomizing the arrayList cause I didn't want to create multiple arrayLists, and I wanted to test out how using ThreadLocalRandom worked. "i < ThreadLocal..." randomizes the length of the arrayList. ...nextInt(min, max + 1) 
 		for (int i = 0; i < ThreadLocalRandom.current().nextInt(10, 21); i++)
@@ -41,7 +41,7 @@ public class StatsLibraryTester {
 		
 		//Permutations/Combinations Methods (These use BigInteger, and Strings are inputs to allows insanely big number)
 		System.out.println("The factorial of " + number + " is: " + tester.findFactorial(number) + "\n");
-		System.out.println("The number of Permutations is: " + tester.findPermutations("10", "5"));
-		System.out.println("The number of Combinations is: " + tester.findCombinations("10", "5"));
+		System.out.println("The number of Permutations is: " + tester.findPermutations("52", "2"));
+		System.out.println("The number of Combinations is: " + tester.findCombinations("52", "2"));
 	}
 }

@@ -7,7 +7,7 @@ import java.util.concurrent.ThreadLocalRandom;
  * This class only has two methods. One to generate the list of Doors, and one to play through the Monty Hall scenario. 
  * 
  * @author Ryan Minneo
- * @version 0.9 - Doesn't currently obtain the right answer.
+ * @version 1.0
  */
 public class DoorGame 
 {
@@ -38,13 +38,13 @@ public class DoorGame
 	}
 	
 	/**
-	 * This method plays the game. It will play/iterate through the game "times" amount. Since there is a choice of changing or not changing the door the player picks, there is also a boolean "keepAnswer" to determine if this method will change doors or not.
+	 * This method plays the game. It will play/iterate through the game "times" amount. Since there is a choice of changing or not changing the door the player picks, there is also a boolean "switchAnswer" to determine if this method will change doors or not.
 	 * 
 	 * @param times - Number of times the game will be played
-	 * @param keepAnswer - Whether or not the game will stick to its original answer or change its answer after a door has been revealed.
+	 * @param switchAnswer - Whether or not the game will stick to its original answer or change its answer after a door has been revealed.
 	 * @return winCount - the number of times this program "wins" the game/picks the door with the car behind it.
 	 */
-	public int playGame(int times, boolean keepAnswer)
+	public int playGame(int times, boolean switchAnswer)
 	{
 		int winCount = 0;
 		int decision; //= ThreadLocalRandom.current().nextInt(0, 3);
@@ -55,17 +55,18 @@ public class DoorGame
 			decision = ThreadLocalRandom.current().nextInt(0, 3);
 			doorList.addAll(generateDoors());
 			
-			if (doorList.get(decision) == 1) //if you choose the right door,       (This happens 1/3 of the time)
-				if (keepAnswer) //if you want to keep your answer, not change it, 
+			if (doorList.get(decision) == 1) //if you choose the right door,       (This happens 1/3 of the time)		
+			{
+				if (!switchAnswer) //if you want to keep your answer, not change it, 
 					winCount++; //you get a win
-			
+			}
 			else //if you don't choose the right door immediately       (This happens 2/3 of the time)
 			{
 				//At this point a door would be revealed, thus changing doors will always be the best option here.
-				if (!keepAnswer) //if you want to change doors     
+				if (switchAnswer) //if you want to change doors     
 					winCount++; //you get a win
 			}
-			
+			//System.out.println(doorList.toString() + " " + decision + " " + (doorList.get(decision) == 1)); To test the code.
 			doorList.removeAll(doorList);
 		}
 		

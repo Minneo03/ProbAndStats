@@ -13,6 +13,6 @@ public class DoorGameTester
 	{
 		DoorGame tester = new DoorGame();
 		
-		System.out.println("The amount of times won is " + tester.playGame(10000, false));
+		System.out.println("The amount of times won is " + tester.playGame(10000, true));
 	}
 }
