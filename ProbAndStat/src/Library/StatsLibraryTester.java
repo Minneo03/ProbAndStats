@@ -43,5 +43,7 @@ public class StatsLibraryTester {
 		System.out.println("The factorial of " + number + " is: " + tester.findFactorial(number) + "\n");
 		System.out.println("The number of Permutations is: " + tester.findPermutations("52", "2"));
 		System.out.println("The number of Combinations is: " + tester.findCombinations("52", "2"));
+		System.out.println("The binomial distribution is " + tester.binomialDistributionExact(5, 3, 0.75, 0.25));
+		System.out.println("The binomial distribution is " + tester.binomialDistributionGreater(5, 3, 0.75, 0.25));
 	}
 }

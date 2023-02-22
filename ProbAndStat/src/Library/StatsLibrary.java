@@ -181,4 +181,47 @@ public class StatsLibrary {
 		strCombinations = combinations.toString();
 		return strCombinations;
 	}
+	
+	/**
+	 * Finds the Binomial Distribution of an exact number
+	 * Example, find the probability of exactly 7 out of 10 successes.
+	 * 
+	 * @param n - total number of cases
+	 * @param y - number of "successes"
+	 * @param p - chance of success
+	 * @param q - chance of failure - 1-p
+	 * @return finalAnswer - the finalAnswer of the binomialDistribution
+	 */
+	public double binomialDistributionExact(int n, int y, double p, double q)
+	{
+		double finalAnswer = 0.0;
+		
+		int combos = Integer.parseInt(findCombinations(String.valueOf(n), String.valueOf(y)));
+		
+		finalAnswer = combos * Math.pow(p, y) * Math.pow(q, (n-y));
+		
+		return finalAnswer;
+	}
+	
+	/**
+	 * Finds the Binomial Distribution of numbers greater than y.
+	 * Example, find the probability of at least 8 out of 10 successes. (y would be 7)
+	 * 
+	 * @param n - total number of cases
+	 * @param y - Greater than y successes
+	 * @param p - chance of success per trial
+	 * @param q - chance of failure per trial
+	 * @return finalAnswer = sum of each individual binomialDistributionExact.
+	 */
+	public double binomialDistributionGreater(int n, int y, double p, double q)
+	{
+		double finalAnswer = 0.0;
+		
+		for (int i = y + 1; i <= n; i++)
+		{
+			finalAnswer += binomialDistributionExact(n, i, p, q);
+		}
+		
+		return finalAnswer;
+	}
 }
