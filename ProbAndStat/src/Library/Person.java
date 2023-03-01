@@ -101,7 +101,7 @@ public class Person {
 		}
 		sameBirthPercent = (double)sameBirthNum/(double)numTimes * 100;
 		
-		sameBirth = "Out of " + numTimes + " times, there were at least two people out of " + numPeople + " had the same birthday " + sameBirthNum + " times. The percentage comes out to be " + sameBirthPercent + "%.";
+		sameBirth = "Out of " + numTimes + " times, there were at least two people out of " + numPeople + " who had the same birthday " + sameBirthNum + " times. The percentage comes out to be " + sameBirthPercent + "%.";
 		return sameBirth;
 	}
 }
