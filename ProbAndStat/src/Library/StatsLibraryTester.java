@@ -1,10 +1,9 @@
 package Library;
 
-//Didn't know this way of getting a random integer so I wanted to try it
-
 /**
+ * Just the tester/main method for my StatsLibrary. I make an object then call 1 method in this class.
  * @author Ryan Minneo
- *
+ * @version 1.0
  */
 public class StatsLibraryTester {
 	

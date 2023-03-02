@@ -4,8 +4,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 /**
+ * SetOperations class contains many method that have to relate to sets, such as union, intersection, and complement.
+ * 
  * @author Ryan Minneo
- *
+ * @version 1.0
  */
 public class SetOperations {
 	

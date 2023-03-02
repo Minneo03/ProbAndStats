@@ -8,18 +8,18 @@ import java.math.BigInteger;
 
 /**
  * 
- * This class uses plenty of methods to find various measurements used in Statistics. Such as mean, median, and mode.
+ * This class uses plenty of methods to find various measurements used in Statistics. Such as mean, median, and mode. This class also includes different Distribution equations and a way to find permutations and combinations.
  * 
  * @author RyanMinneo
- *
+ * @version 1.0
  */
 public class StatsLibrary {
 	
 	/**
 	 * Finds the mean of an arrayList
 	 * 
-	 * @param inputArr
-	 * @return mean
+	 * @param inputArr - input Array, an arrayList of integers
+	 * @return mean - the mean of the inputed arrayList.
 	 */
 	public double findMean(ArrayList<Integer> inputArr) {
 		double mean = 0.0;
@@ -36,8 +36,8 @@ public class StatsLibrary {
 	/**
 	 * Sorts the arraylist to be in increasing order, then determines whether the size of the array is even or odd using modulo. Then finds the median of the arrayList
 	 * 
-	 * @param inputArr
-	 * @return median
+	 * @param inputArr - inputed arrayList containing integers 
+	 * @return median - the median of the arrayList
 	 */
 	public double findMedian(ArrayList<Integer> inputArr) {
 		double median = 0.0;
@@ -62,8 +62,8 @@ public class StatsLibrary {
 	/**
 	 * Finds the mode of an inputed arrayList. If there are "multiple modes" then it should return null. If there is no mode, it will also return null.
 	 * 
-	 * @param inputArr
-	 * @return mode
+	 * @param inputArr - the inputed arrayList containing integers
+	 * @return mode - the mode of the integers, will return null if there is no mode.
 	 */
 	public Integer findMode(ArrayList<Integer> inputArr) 
 	{
@@ -95,7 +95,7 @@ public class StatsLibrary {
 	/**
 	 * Finds the standard deviation of an ArrayList of Integers
 	 * 
-	 * @param inputArr
+	 * @param inputArr - the inputed arrayList of integers
 	 * @return deviation (AKA Standard Deviation)
 	 */
 	public double standardDeviation(ArrayList<Integer> inputArr)
@@ -141,8 +141,8 @@ public class StatsLibrary {
 	/**
 	 * Finds the number of Permutations. Takes nInput and rInput to plug into the permutation equation. This class uses BigInteger, so I decided to go with String inputs and outputs rather than ints.
 	 * 
-	 * @param nInput
-	 * @param rInput
+	 * @param nInput - the number of elements
+	 * @param rInput - how many elements are taken at a time
 	 * @return strPermutations - the string version of the number of permutations.
 	 */
 	public String findPermutations(String nInput, String rInput)
@@ -163,9 +163,9 @@ public class StatsLibrary {
 	/**
 	 * Finds the number of combinations given nInput and rInput, where n and r are the variables in the Combination equation. Uses BigInteger to allows for bigger inputs and outputs. Because I use BigInteger, the inputs and outputs are strings
 	 * 
-	 * @param nInput
-	 * @param rInput
-	 * @return
+	 * @param nInput - the number of elements
+	 * @param rInput - number of elements taken at a time
+	 * @return strCombinations - a string containing the number of combinations
 	 */
 	public String findCombinations(String nInput, String rInput)
 	{
@@ -186,6 +186,7 @@ public class StatsLibrary {
 	/**
 	 * Finds the Binomial Distribution of an exact number
 	 * Example, find the probability of exactly 7 out of 10 successes.
+	 * This method will not work if the number of combinations exceeds the max int value of 2.147 billion.
 	 * 
 	 * @param n - total number of cases
 	 * @param y - number of "successes"
@@ -244,7 +245,7 @@ public class StatsLibrary {
 	}
 	
 	/**
-	 * Tests every method from this class and prints out those trials into the console.
+	 * Tests every method from this class and prints out those trials into the console. This method is much longer than it needs to be, but it allows only 2 lines in the main method.
 	 */
 	public void testEverything()
 	{
