@@ -190,7 +190,6 @@ public class StatsLibrary {
 	 * @param n - total number of cases
 	 * @param y - number of "successes"
 	 * @param p - chance of success
-	 * @param q - chance of failure - 1-p
 	 * @return finalAnswer - the finalAnswer of the binomialDistribution
 	 */
 	public double binomialDistributionExact(int n, int y, double p)
@@ -212,7 +211,6 @@ public class StatsLibrary {
 	 * @param n - total number of cases
 	 * @param y - Greater than y successes
 	 * @param p - chance of success per trial
-	 * @param q - chance of failure per trial
 	 * @return finalAnswer = sum of each individual binomialDistributionExact.
 	 */
 	public double binomialDistributionGreater(int n, int y, double p)
@@ -245,6 +243,9 @@ public class StatsLibrary {
 		return finalAnswer;
 	}
 	
+	/**
+	 * Tests every method from this class and prints out those trials into the console.
+	 */
 	public void testEverything()
 	{
 		StatsLibrary tester = new StatsLibrary();
